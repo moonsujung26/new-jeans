@@ -89,8 +89,8 @@
 .main_visual_slide {}
 
 .main_visual_slide .itm {
-    height: 800px;
     position: relative;
+    height: 800px;
 }
 
 .main_visual_slide .itm01 {
@@ -149,55 +149,40 @@
     transition-delay: 10ms;
 }
 
-.main_visual .scroll-downs {
+.main_visual .scroll-downs .arrow {
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     left: 50%;
-
-    transform: translate(-50%, 0);
-    margin: auto;
-    z-index: 1100;
-    width: 34px;
-    height: 55px;
+    transform: translate(-50%, 0) rotate(315deg);
+    width: 24px;
+    height: 24px;
+    border-left: 2px solid #686868;
+    border-bottom: 2px solid #686868;
+    animation: scrollDown 1s ease-in-out infinite alternate;
+    cursor: pointer;
 }
 
-.main_visual .scroll-downs .mousey {
-    width: 3px;
-    padding: 10px 15px;
-    height: 35px;
-    border: 2px solid #686868;
-    border-radius: 25px;
-    opacity: 0.75;
-    box-sizing: content-box;
-}
+@keyframes scrollDown {
 
-
-.main_visual .scroll-downs .scroller {
-    width: 3px;
-    height: 10px;
-    border-radius: 25%;
-    background-color: #686868;
-    animation-name: scroll;
-    animation-duration: 2.2s;
-    animation-timing-function: cubic-bezier(.15, .41, .69, .94);
-    animation-iteration-count: infinite;
-}
-
-@keyframes scroll {
     0% {
         opacity: 0;
     }
 
     10% {
-        transform: translateY(0);
+
+        transform: translate(-50%, 0) rotate(315deg);
         opacity: 1;
+
     }
 
     100% {
-        transform: translateY(15px);
+        transform: translate(-50%, 15px) rotate(315deg);
         opacity: 0;
     }
+
 }
+
+.main_visual .scroll-downs .arrow::before {}
 
 
 
@@ -297,6 +282,12 @@
 
 }
 
+.footer .inner .logo address {
+    font-style: normal;
+    color: #333;
+}
+
+
 .footer .inner .sns_link {
     position: absolute;
     top: 8px;
@@ -313,4 +304,42 @@
 
     width: auto;
     height: 100%;
+}
+
+/* //푸터 끝// */
+
+.to_top {
+
+    position: fixed;
+    bottom: 120px;
+    right: 0;
+    z-index: 999;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.5s;
+
+}
+
+.to_top.on {
+    right: 40px;
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+.to_top button {
+    background: transparent;
+    border: none;
+}
+
+.to_top i {
+    padding: 16px;
+    background: rgba(153, 153, 153, 0.3);
+    border-radius: 50%;
+    color: #fff;
+
+    transform: rotate(90deg);
 }
